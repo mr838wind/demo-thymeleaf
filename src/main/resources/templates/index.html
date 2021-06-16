@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+    <title>홈페이지</title>
+</head>
+<body>
+<h1>타임리프 예제 테이블</h1>
+<table>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>날짜</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tbody>
+            <tr th:each="board : ${list}">
+                <td><span th:text="*{board.no}"></span></td>
+                <td><span th:text="*{board.title}"></span></td>
+                <td><span th:text="*{board.writer}"></span></td>
+                <td><span th:text="*{T(com.example.demo.controller.Utils).formatTime(board.updateTime)}"></span></td>
+            </tr>
+        </tbody>
+
+    </tbody>
+</table>
+</body>
+</html>
